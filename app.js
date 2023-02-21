@@ -1,19 +1,48 @@
-let userScore =0;
-let computerScore = 0;
-const userScore_span = document.getElementById("user-score");
-const computerScore_span = document.getElementById("computer-score");
-const scoreBoard_div = document.querySelector(".score-board")
-const result_div = document.querySelector(".result")
-const rock_div = document.getElementById("r")
-const paper_div = document.getElementById("p")
-const scissors_div = document.getElementById("s")
+const playerTxt = document.querySelector("#playerTxt");
+const compTxt = document.querySelector("#compTxt");
+const resultTxt = document.querySelector("#resultTxt");
+const choiceBtns = document.querySelectorAll(".choiceBtn");
 
-rock_div.addEventListener('click', function() {
-    game("r")
-})
-paper_div.addEventListener('click', function() {
-    game("p")
-})
-scissors_div.addEventListener('click', function() {
-    game("s")
-})
+let player;
+let computer;
+let result;
+
+choiceBtns.forEach(button => button.addEventListener("click", () => {
+    
+    player = button.textContent;
+    computerTurn();
+    playerTxt.textContent = `Player: ${player}`
+    compTxt.textContent = `Computer: ${computer}`
+    resultTxt.textContent = checkWinner();
+}))
+
+function computerTurn() {
+    const randomNum = Math.floor(Math.random() * 3) + 1;
+
+    switch(randomNum){
+        case 1:
+            computer = "ROCK";
+            break
+        case 2:
+            computer = "PAPER";
+            break
+        case 3:
+            computer = "SCISSORS";
+            break
+    }
+}
+
+function checkWinner(){
+    if(player == computer){
+        return "Draw! It's a tie";
+    }
+    else if(computer == "ROCK"){
+        return (player == "PAPER") ? "You win!" : "You lose!";
+    }
+    else if(computer == "PAPER"){
+        return (player == "SCISSORS") ? "You win!" : "You lose!";
+    }
+    else if(computer == "SCISSORS"){
+        return (player == "ROCK") ? "You win!" : "You lose!";
+    }
+}       

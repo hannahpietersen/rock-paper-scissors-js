@@ -7,33 +7,16 @@
         <title>ROCK PAPER SCISSORS</title>
     </head>
     <body>
-     <header>
-        <h1>ROCK PAPER SCISSORS</h1>
-     </header>
+     <div id="gameDiv">
+        <h1 class="game" id="playerTxt">Player:</h1>
+        <h1 class="game" id="compTxt">Computer:</h1>
+        <h1 class="game" id="resultTxt">Result:</h1>
 
-     <div class="score-board">
-        <div id="user-label" class="badge">USER</div>
-        <div id="computer-label" class="badge">COMP</div>
-        <span id="user-score">0</span>:<span id="computer-score">0</span>
+        <button class="choiceBtn">ROCK</button>
+        <button class="choiceBtn">PAPER</button>
+        <button class="choiceBtn">SCISSORS</button>
+        
      </div>
-
-     <div class="result">
-        <p>PAPER COVERS ROCK....  YOU WIN!!</p>
-     </div>
-
-     <div class="choices">
-        <div class="choice" id="r">
-            <img src="rock.png" alt="" />        
-        </div>
-        <div class="choice" id="p">
-            <img src="paper.png" alt="" />        
-        </div>
-        <div class="choice" id="s">
-            <img src="scissors.png" alt="" />        
-        </div>
-     </div>
-
-     <p id="action-message">MAKE YOUR MOVE</p>
      <script src="app.js" charset="utf-8"></script>
 
     </body>
